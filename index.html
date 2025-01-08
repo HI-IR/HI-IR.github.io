@@ -1,404 +1,159 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  
-  <title>HHR的小世界</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>HHR的小世界 - HHR的个人博客</title><meta name="author" content="HI-IR"><meta name="copyright" content="HI-IR"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
 <meta property="og:title" content="HHR的小世界">
 <meta property="og:url" content="http://example.com/index.html">
 <meta property="og:site_name" content="HHR的小世界">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/butterfly-icon.png">
 <meta property="article:author" content="HI-IR">
 <meta property="article:tag" content="HHR的个人博客">
 <meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="HHR的小世界" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-  
-<link rel="stylesheet" href="/css/style.css">
-
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
-
-  
-  
-<meta name="generator" content="Hexo 7.3.0"></head>
-
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">HHR的小世界</a>
-      </h1>
+<meta name="twitter:image" content="http://example.com/img/butterfly-icon.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
       
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">HHR的个人博客</a>
-        </h2>
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
       
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-        
-          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
-        
-        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
 
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-java基础之集合" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/01/08/java%E5%9F%BA%E7%A1%80%E4%B9%8B%E9%9B%86%E5%90%88/" class="article-date">
-  <time class="dt-published" datetime="2025-01-08T05:53:25.000Z" itemprop="datePublished">2025-01-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/01/08/java%E5%9F%BA%E7%A1%80%E4%B9%8B%E9%9B%86%E5%90%88/">java基础之集合</a>
-    </h1>
-  
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
 
-      </header>
+      const theme = saveToLocal.get('theme')
     
-    <div class="e-content article-entry" itemprop="articleBody">
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
       
-        <h1 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h1><h2 id="为什么使用泛型"><a href="#为什么使用泛型" class="headerlink" title="为什么使用泛型"></a>为什么使用泛型</h2><blockquote>
-<p>泛型是一种推广化和限制化</p>
-<p>泛型是一种<strong>推广化</strong>。它允许代码在更广泛的类型上工作，而不是局限于特定的类型</p>
-<p>泛型是一种<strong>限制化</strong>。通过指定泛型类型，限制了在该类型参数位置可以使用的类型</p>
-</blockquote>
-<h2 id="泛型类"><a href="#泛型类" class="headerlink" title="泛型类"></a>泛型类</h2><h3 id="泛型类的定义"><a href="#泛型类的定义" class="headerlink" title="泛型类的定义"></a>泛型类的定义</h3><blockquote>
-<p>类型参数用于类的定义中，则该类被称为泛型类。</p>
-<p>最典型的就是各种容器类，如：List、Set、Map等。</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class 类名&lt;泛型标识&gt;&#123;</span><br><span class="line">	<span class="keyword">private</span> 泛型标识 <span class="comment">/*（成员变量类型）*/</span> 变量名; </span><br><span class="line">  	.....</span><br><span class="line">  &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<blockquote>
-<p>常见的泛型标识如下</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">T ：代表一般的任何类。</span><br><span class="line">E ：代表 Element 元素的意思，或者 Exception 异常的意思。</span><br><span class="line">K ：代表 Key 的意思。</span><br><span class="line">V ：代表 Value 的意思，通常与 K 一起配合使用。</span><br></pre></td></tr></table></figure></blockquote>
-<p>**注意：**泛型是没有多态的</p>
-<h1 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><h3 id="Java集合分为2种体系"><a href="#Java集合分为2种体系" class="headerlink" title="Java集合分为2种体系"></a>Java集合分为2种体系</h3><ol>
-<li>单一数据体系: Collection接口</li>
-<li>成对出现的数据体系     键值对数据（key , value） Map接口</li>
-</ol>
-<h2 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h2><h3 id="List"><a href="#List" class="headerlink" title="List"></a>List</h3><p>​		按照插入顺序保存数据，数据可以重复</p>
-<p>​		具体实现类：ArrayList	LinkedList</p>
-<h4 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h4><h6 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ArrayList list = new ArrayList();</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>参数构造，底层数组为空数组</li>
-<li>构造函数传递一个int类型的数据，用于设定底层数组的长度</li>
-<li>构造函数传递一个Collection集合类型的值，用于将其他集合中的数据放置在当前集合中</li>
-</ol>
-<h5 id="增"><a href="#增" class="headerlink" title="增"></a>增</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">lsit.add(Object element);</span><br><span class="line">//在集合最后面加入元素</span><br><span class="line"></span><br><span class="line">list.add(int index,Object element)</span><br><span class="line">//在指定位置插入元素</span><br></pre></td></tr></table></figure>
-
-<p>*注意扩容</p>
-<h5 id="删"><a href="#删" class="headerlink" title="删"></a>删</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Object removeVal = list.remove(int index);</span><br><span class="line">//该方法返回结果，这个结果是删除的值</span><br></pre></td></tr></table></figure>
-
-
-
-<h5 id="改"><a href="#改" class="headerlink" title="改"></a>改</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Object oldVal =list.set(int index,Object element);</span><br><span class="line">//该方法返回结果，这个结果是更新前的值</span><br></pre></td></tr></table></figure>
-
-
-
-<h5 id="查"><a href="#查" class="headerlink" title="查"></a>查</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//访问数组长度</span><br><span class="line">list.size();</span><br><span class="line"></span><br><span class="line">//获取指定位置的数据</span><br><span class="line">lsit.get(int index);</span><br></pre></td></tr></table></figure>
-
-
-
-<h5 id="其他常用方法"><a href="#其他常用方法" class="headerlink" title="其他常用方法"></a>其他常用方法</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">boolean lsit.isEmpty();</span><br><span class="line">//集合中的数据是否为空</span><br><span class="line"></span><br><span class="line">void list.clear();</span><br><span class="line">//清空集合中的数据</span><br><span class="line"></span><br><span class="line">boolean list.removeAll(Collection&lt;?&gt;c);</span><br><span class="line">//删除指定集合的数据</span><br><span class="line"></span><br><span class="line">boolean lsit.contains(Object element);</span><br><span class="line">//集合中是否存在元素element</span><br><span class="line"></span><br><span class="line">int list.indexof(Object element);</span><br><span class="line">//用于获取数据在集合中第一个索引位置</span><br><span class="line">//如果数据不存在，则返回-1</span><br><span class="line">//如果有2个同样的element，则返回第一个索引</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Object[] list.toArray();</span><br><span class="line">//把ArrayList变成Array数组</span><br><span class="line"></span><br><span class="line">Object list.clone();</span><br><span class="line">//克隆ArrayList</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h4 id="LinkedList-双向链表"><a href="#LinkedList-双向链表" class="headerlink" title="LinkedList(双向链表)"></a>LinkedList(双向链表)</h4><h5 id="构造方法-1"><a href="#构造方法-1" class="headerlink" title="构造方法"></a>构造方法</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LinkedList&lt;E&gt; list = new LinkedList();</span><br><span class="line">//无参构造</span><br><span class="line">//有参构造 传入一个Collection数据</span><br></pre></td></tr></table></figure>
-
-
-
-<h5 id="增-1"><a href="#增-1" class="headerlink" title="增"></a>增</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">list.add(Object element);</span><br><span class="line"></span><br><span class="line">list.add(int index,Object element);</span><br><span class="line">//插入法</span><br><span class="line"></span><br><span class="line">list.addFirst(Object element);</span><br></pre></td></tr></table></figure>
-
-
-
-<h5 id="获取数据"><a href="#获取数据" class="headerlink" title="获取数据"></a>获取数据</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">list.getFirst();</span><br><span class="line">//获取头指针指向的元素</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">list.getLast();</span><br><span class="line">//获取尾指针指向的元素</span><br><span class="line"></span><br><span class="line">list.get(int index)</span><br></pre></td></tr></table></figure>
-
-
-
-<h5 id="改-1"><a href="#改-1" class="headerlink" title="改"></a>改</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">list.set(int index,Object element);</span><br></pre></td></tr></table></figure>
-
-
-
-<h5 id="删-1"><a href="#删-1" class="headerlink" title="删"></a>删</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">list.remove(int index);</span><br><span class="line"></span><br><span class="line">list.removeFirst();</span><br><span class="line">list.remove();//删除第一个</span><br><span class="line"></span><br><span class="line">list.removeLast();</span><br><span class="line"></span><br><span class="line">list.remove(Object element)</span><br></pre></td></tr></table></figure>
-
-
-
-<h5 id="其他常用方法-1"><a href="#其他常用方法-1" class="headerlink" title="其他常用方法"></a>其他常用方法</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">list.push(Object element);</span><br><span class="line">//等同于 list.addFirst()</span><br><span class="line"></span><br><span class="line">list.pop();</span><br><span class="line">//弹出数据</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="排序（sort）"><a href="#排序（sort）" class="headerlink" title="排序（sort）"></a>排序（sort）</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;Integer&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">NumberComparator</span> <span class="keyword">implements</span> <span class="title class_">Comparator</span>&lt;Integer&gt; &#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">    </span><br><span class="line">   </span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compare</span><span class="params">(Integer o1,Integer o2)</span>&#123;</span><br><span class="line">        <span class="comment">//如果第一个数比第二个数大，则返回结果为正数，标识升序</span></span><br><span class="line">        <span class="comment">//如果第一个数比第二个数小，则返回结果为负数，标识降序</span></span><br><span class="line">        <span class="comment">//如果第一个数比第二个数相等，则返回结果0</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">list.sort();</span><br><span class="line"><span class="comment">//需要传入一个实现了比较器Comparator接口的对象	</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h5 id="Comparator比较器中compare的规则"><a href="#Comparator比较器中compare的规则" class="headerlink" title="Comparator比较器中compare的规则"></a>Comparator比较器中compare的规则</h5><p>**规则:**返回结果为正时，交换顺序，返回值为负时不交换顺序</p>
-<h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><p>​		集，无顺保存，数据不能重复</p>
-<p>​		具体实现类：HashSet</p>
-<h4 id="HashSet"><a href="#HashSet" class="headerlink" title="HashSet"></a>HashSet</h4><p>放入的数据会通过Hash算法得到不同的index，我们并不能知道一个element对应的经过Hash算法后的index，所以对于我们而言是无序的，相同的element经过Hash得到的index是一样的，HashSet所以数据是不能重复的</p>
-<p>添加一个数据时，先经过Hash算法获得index,按照index放入相对应的数组位置中，如果2个不相同的元素，经过该算法获得了相同的index那么HashSet将会运行equal来判断2个元素是否相等，相等则不改变set，不相等时会采用链表的方法将2值连在一起</p>
-<p><strong>HashSet的底层为 数组+链表的形式</strong></p>
-<blockquote>
-<p><strong>对象重复的判断标准：</strong></p>
-<p>对象HashCode相不相同（内存地址）</p>
-<p>HashCode不相同，则不重复</p>
-<p>HashCode相同，则重复</p>
-</blockquote>
-<blockquote>
-<p><strong>注:</strong></p>
-<p>HashCode的算法可以自己修改，以达到判断是否相同的目的</p>
-</blockquote>
-<h5 id="更改判断标准"><a href="#更改判断标准" class="headerlink" title="更改判断标准"></a>更改判断标准</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">User</span>&#123;</span><br><span class="line">    <span class="type">int</span> id;</span><br><span class="line">    String name;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">User</span><span class="params">(<span class="type">int</span> id, String name)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.id = id;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">equals</span><span class="params">(Object o)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span> == o) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (!(o <span class="keyword">instanceof</span> User user)) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">return</span> id == user.id &amp;&amp; name.equals(user.name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">hashCode</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h5 id="构造方法-2"><a href="#构造方法-2" class="headerlink" title="构造方法"></a>构造方法</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HashSet&lt;E&gt; set =<span class="keyword">new</span> <span class="title class_">HashSet</span>();</span><br></pre></td></tr></table></figure>
-
-
-
-<h5 id="增-2"><a href="#增-2" class="headerlink" title="增"></a>增</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">set.add(Object element);</span><br><span class="line"><span class="comment">//添加单个元素</span></span><br><span class="line"></span><br><span class="line">set.addAll(Collection c);</span><br><span class="line"><span class="comment">//添加一个集合的元素</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h5 id="删-2"><a href="#删-2" class="headerlink" title="删"></a>删</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set.remove(E element);</span><br></pre></td></tr></table></figure>
-
-
-
-<h5 id="改-2"><a href="#改-2" class="headerlink" title="改"></a>改</h5><p>**注:**HashSet中没有改的操作</p>
-<h5 id="查-1"><a href="#查-1" class="headerlink" title="查"></a>查</h5><p>**注:**HashSet中没有查的操作</p>
-<h5 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Object[] set.toArray();</span><br><span class="line"><span class="comment">//将set转化为数组</span></span><br><span class="line">set.clear();</span><br><span class="line">set.isEmpty();</span><br><span class="line"> </span><br><span class="line"><span class="type">boolean</span> set.contains(Object element);</span><br><span class="line"><span class="type">boolean</span> set.containsAll(Collection c);</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h3><p>​		队列</p>
-<p>​		具体实现类：ArrayBlockingQueue</p>
-<h4 id="ArrayBlockingQueue"><a href="#ArrayBlockingQueue" class="headerlink" title="ArrayBlockingQueue"></a>ArrayBlockingQueue</h4><p>ArrayBlockingQueue&#x3D;Array(数组)+Blocking(阻塞,队列有限)+Queue（队列）</p>
-<h5 id="构造方法-3"><a href="#构造方法-3" class="headerlink" title="构造方法"></a>构造方法</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ArrayBlockingQueue</span> <span class="variable">queue</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ArrayBlockingQueue</span>(<span class="type">int</span> size);<span class="comment">//输入容量</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h5 id="增-3"><a href="#增-3" class="headerlink" title="增"></a>增</h5><h6 id="add方法"><a href="#add方法" class="headerlink" title="add方法"></a>add方法</h6><blockquote>
-<p>add方法如果增加不了数据，则直接报错</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">queue.add(Object element)</span><br></pre></td></tr></table></figure>
-
-
-
-<h6 id="put方法"><a href="#put方法" class="headerlink" title="put方法"></a>put方法</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">queue.put(Object element)</span><br></pre></td></tr></table></figure>
-
-
-
-<h5 id="删-3"><a href="#删-3" class="headerlink" title="删"></a>删</h5><h2 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h2><p>具体实现：HashMap，Hastable</p>
-
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'HHR的小世界',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  isShuoshuo: false
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">HHR的小世界</span></a></span><div id="menus"></div></nav><div id="site-info"><h1 id="site-title">HHR的小世界</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2025/01/08/java%E5%9F%BA%E7%A1%80%E4%B9%8B%E9%9B%86%E5%90%88/" title="java基础之集合">java基础之集合</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-01-08T05:53:25.000Z" title="发表于 2025-01-08 13:53:25">2025-01-08</time></span></div><div class="content">泛型为什么使用泛型 泛型是一种推广化和限制化 泛型是一种推广化。它允许代码在更广泛的类型上工作，而不是局限于特定的类型 泛型是一种限制化。通过指定泛型类型，限制了在该类型参数位置可以使用的类型  泛型类泛型类的定义 类型参数用于类的定义中，则该类被称为泛型类。 最典型的就是各种容器类，如：List、Set、Map等。  12345class 类名&lt;泛型标识&gt;&#123;	private 泛型标识 /*（成员变量类型）*/ 变量名;   	.....  &#125;  &#125;     常见的泛型标识如下 1234T ：代表一般的任何类。E ：代表 Element 元素的意思，或者 Exception 异常的意思。K ：代表 Key 的意思。V ：代表 Value 的意思，通常与 K 一起配合使用。 **注意：**泛型是没有多态的 集合介绍Java集合分为2种体系 单一数据体系: Collection接口 成对出现的数据体系     键值对数据（key , value）...</div></div></div><div class="recent-post-item"><div class="recent-post-info"><a class="article-title" href="/2025/01/08/hello-world/" title="Hello World">Hello World</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-01-08T05:44:16.129Z" title="发表于 2025-01-08 13:44:16">2025-01-08</time></span></div><div class="content">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;  More info: Writing Run server1$ hexo server  More info: Server Generate static files1$ hexo generate  More info: Generating Deploy to remote sites1$ hexo deploy  More info: Deployment </div></div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">HI-IR</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">1</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><div class="content"><a class="title" href="/2025/01/08/java%E5%9F%BA%E7%A1%80%E4%B9%8B%E9%9B%86%E5%90%88/" title="java基础之集合">java基础之集合</a><time datetime="2025-01-08T05:53:25.000Z" title="发表于 2025-01-08 13:53:25">2025-01-08</time></div></div><div class="aside-list-item"><div class="content"><a class="title" href="/2025/01/08/hello-world/" title="Hello World">Hello World</a><time datetime="2025-01-08T05:44:16.129Z" title="发表于 2025-01-08 13:44:16">2025-01-08</time></div></div></div></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/java%E5%9F%BA%E7%A1%80/" style="font-size: 1.1em; color: #999">java基础</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/01/08/java%E5%9F%BA%E7%A1%80%E4%B9%8B%E9%9B%86%E5%90%88/" data-id="cm5nhjmqs0000pwuuf0pwgxqc" data-title="java基础之集合" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java%E5%9F%BA%E7%A1%80/" rel="tag">java基础</a></li></ul>
-
-    </footer>
-  </div>
+    <ul class="card-archive-list">
   
-</article>
-
-
-
-  
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/01/08/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2025-01-08T05:44:16.129Z" itemprop="datePublished">2025-01-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/01/08/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/01/08/hello-world/" data-id="cm5nhgh6p0000louu7s2j0p7z" data-title="Hello World" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/java%E5%9F%BA%E7%A1%80/" rel="tag">java基础</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/java%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">java基础</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/01/">一月 2025</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2025/01/08/java%E5%9F%BA%E7%A1%80%E4%B9%8B%E9%9B%86%E5%90%88/">java基础之集合</a>
-          </li>
-        
-          <li>
-            <a href="/2025/01/08/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2025 HI-IR<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-
-<script src="/js/jquery-3.6.4.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
-</body>
-</html>
+      <li class="card-archive-list-item">
+        <a class="card-archive-list-link" href="/archives/2025/01/">
+          <span class="card-archive-list-date">一月 2025</span>
+          <span class="card-archive-list-count">2</span>
+        </a>
+      </li>
+    </ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">2</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-01-08T05:58:52.890Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By HI-IR</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
