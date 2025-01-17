@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>SQL指令</title>
+      <link href="/2025/01/17/SQL%E6%8C%87%E4%BB%A4/"/>
+      <url>/2025/01/17/SQL%E6%8C%87%E4%BB%A4/</url>
+      
+        <content type="html"><![CDATA[<h1 id="SQL指令"><a href="#SQL指令" class="headerlink" title="SQL指令"></a>SQL指令</h1><blockquote><p>可以使用SQL命令进行关系型数据库操作</p></blockquote><blockquote><p><strong>注:</strong> 不同的关系型管理系统可能有不同的指令</p></blockquote><p><strong>持续更新(学到哪更到哪)</strong></p><h2 id="SQL概述"><a href="#SQL概述" class="headerlink" title="SQL概述"></a>SQL概述</h2><blockquote><p>SQL指令主要分为：数据定义，数据操纵，数据查询，数据控制，事务控制等</p></blockquote><h3 id="数据定义-DDL"><a href="#数据定义-DDL" class="headerlink" title="数据定义(DDL)"></a>数据定义(DDL)</h3><p>​创建和修改盛放数据的容器</p><h3 id="数据操纵-DML"><a href="#数据操纵-DML" class="headerlink" title="数据操纵(DML)"></a>数据操纵(DML)</h3><p>​表中添加，修改，删除数据</p><h3 id="数据查询-DQL"><a href="#数据查询-DQL" class="headerlink" title="数据查询(DQL)"></a>数据查询(DQL)</h3><p>​表中数据多条件查询（最复杂的！！！）</p><h3 id="事务控制-TCL-与-数据控制-DCL"><a href="#事务控制-TCL-与-数据控制-DCL" class="headerlink" title="事务控制(TCL) 与 数据控制(DCL)"></a>事务控制(TCL) 与 数据控制(DCL)</h3><p>​事务启动，提交，回滚(事务控制)</p><p>​账号创建，权限控制(数据控制)</p><p><strong>注：</strong> 数据定义，数据操纵，数据查询是重点</p><blockquote><p><strong>学习路线</strong> DDL - DML - DQL  - TCL - DCL</p></blockquote><h2 id="基础操作"><a href="#基础操作" class="headerlink" title="基础操作"></a>基础操作</h2><h3 id="连接mysql服务"><a href="#连接mysql服务" class="headerlink" title="连接mysql服务"></a>连接mysql服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u&lt;username&gt; -p&lt;password&gt; -h&lt;hostname&gt; -P&lt;port&gt; &lt;databassname&gt;</span><br></pre></td></tr></table></figure><blockquote><p>-u<username>：用户名 </p><p>-p<password>：密码（-p后面不带空格 例：-ppassword）</p><p>-h<hostname>：用于指定MySQL服务器的IP（可以不写该参数，默认本地）</p><p>-P<port>：用于指定链接MySQL服务器的端口号（可不写，默认3306）</p><p><databassname>：是你要连接的数据库的名字，连接后会默认使用这个数据库</p></blockquote><p><strong>也可以在-p后不输入密码，进入隐私模式输入密码</strong></p><h3 id="其他基础SQL命令"><a href="#其他基础SQL命令" class="headerlink" title="其他基础SQL命令"></a>其他基础SQL命令</h3><blockquote><p>命令之间用  ;  隔开</p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-- 查看版本</span><br><span class="line"><span class="keyword">select</span> version();</span><br><span class="line"></span><br><span class="line">-- 退出连接</span><br><span class="line"><span class="built_in">exit</span>;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> MySQL学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>java基础之集合</title>
       <link href="/2025/01/08/java%E5%9F%BA%E7%A1%80%E4%B9%8B%E9%9B%86%E5%90%88/"/>
       <url>/2025/01/08/java%E5%9F%BA%E7%A1%80%E4%B9%8B%E9%9B%86%E5%90%88/</url>
